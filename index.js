@@ -75,8 +75,16 @@ function editUserDetails(emailId, name, phonenumber) {
 //deleting
 
 function deleteUser(emailId) {
-  localStorage.removeItem(emailId);
-  removeUserFromScreen(emailId);
+  // localStorage.removeItem(emailId);
+  axios
+    .delete(
+      `https://crudcrud.com/api/936ffe16261444e89484affc5c45bbef/storage/${emailId}`
+    )
+    .then((response) => {
+      removeUserFromScreen(emailId);
+      console.log(response);
+    })
+    .catch((err) => console.log(err));
 }
 
 function removeUserFromScreen(emailId) {
