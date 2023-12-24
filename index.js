@@ -54,9 +54,9 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 function showNewUserOnScreen(user) {
   const parentNode = document.getElementById("listOfUsers");
-  const childHTML = `<li id=${user.email}> ${user.name} - ${user.email}
-    <button onclick=deleteUser('${user.email}')> Delete User </button>
-    <button onclick=editUserDetails('${user.email}','${user.name}','${user.phonenumber}')>Edit User</button>
+  const childHTML = `<li id=${user._id}> ${user.name} - ${user.email}
+    <button onclick=deleteUser('${user._id}')> Delete User </button>
+    <button onclick=editUserDetails('${user._id}','${user.name}','${user.phonenumber}')>Edit User</button>
   </li>`;
 
   // Append the new content to the existing content
@@ -74,14 +74,14 @@ function editUserDetails(emailId, name, phonenumber) {
 
 //deleting
 
-function deleteUser(emailId) {
+function deleteUser(userId) {
   // localStorage.removeItem(emailId);
   axios
     .delete(
-      `https://crudcrud.com/api/936ffe16261444e89484affc5c45bbef/storage/${emailId}`
+      `https://crudcrud.com/api/936ffe16261444e89484affc5c45bbef/storage/${userId}`
     )
     .then((response) => {
-      removeUserFromScreen(emailId);
+      removeUserFromScreen(userId);
       console.log(response);
     })
     .catch((err) => console.log(err));
