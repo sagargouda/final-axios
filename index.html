@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Expense Tracker</title>
+</head>
+
+<body>
+ <form onsubmit="saveToLocalStorage(event)">
+  <label>Name</label>
+  <input id="username" type="text" name="username" required>
+  <label>Email</label>
+  <input id="email" type="email" name="emailId">
+  <label>Phone Number</label>
+  <input id="phonenumber" type="tel" name="phonenumber">
+  <button>Sign up</button>
+ </form>
+ <ul id="listOfUsers">
+
+ </ul>
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+ <script src="index.js"></script>
+</body>
+
+</html>
